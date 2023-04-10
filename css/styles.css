@@ -1,0 +1,21 @@
+#container {
+  margin: auto;
+}
+
+.header-content {
+  width: 3000px;
+  color: white;
+  background-color: #562b80;
+  margin: auto;
+}
+
+img {
+  max-height: 300px;
+  max-width: 300px;
+}
+
+@media screen and (min-width: 575px) {
+  .column-half {
+    flex-basis: 50%;
+  }
+}
