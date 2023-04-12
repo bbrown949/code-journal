@@ -1,0 +1,36 @@
+#container {
+  margin: auto;
+}
+
+.header-content {
+  color: white;
+  margin: auto;
+}
+
+header {
+  background-color: #562b80;
+}
+
+img {
+  width: 100%;
+}
+
+input {
+  width: 100%;
+}
+
+textarea {
+  width: 100%;
+}
+
+.submit-button {
+  display: flex;
+  justify-content: end;
+}
+
+button {
+  background-color: #562b80;
+  color: white;
+  border: 0;
+  padding: 0.3rem 0.5rem;
+}
