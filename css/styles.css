@@ -3,15 +3,36 @@
 }
 
 .header-content {
-  width: 3000px;
   color: white;
-  background-color: #562b80;
   margin: auto;
 }
 
+header {
+  background-color: #562b80;
+}
+
 img {
-  max-height: 300px;
-  max-width: 300px;
+  width: 100%;
+}
+
+input {
+  width: 100%;
+}
+
+textarea {
+  width: 100%;
+}
+
+.submit-button {
+  display: flex;
+  justify-content: end;
+}
+
+button {
+  background-color: #562b80;
+  color: white;
+  border: 0;
+  padding: 0.3rem 0.5rem;
 }
 
 @media screen and (min-width: 575px) {
