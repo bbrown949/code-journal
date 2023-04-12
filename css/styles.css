@@ -34,9 +34,3 @@ button {
   border: 0;
   padding: 0.3rem 0.5rem;
 }
-
-@media screen and (min-width: 575px) {
-  .column-half {
-    flex-basis: 50%;
-  }
-}
