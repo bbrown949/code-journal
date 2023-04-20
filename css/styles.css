@@ -12,6 +12,9 @@
   color: white;
   margin: 0;
   margin-left: 0.5rem;
+  font-size: 18px;
+  padding-left: 20px;
+  padding-top: 3px;
 }
 
 .padding-top {
