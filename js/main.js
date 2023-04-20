@@ -2,6 +2,8 @@ const entriesList = document.querySelector('#entries');
 const $photoURL = document.querySelector('.url');
 const $imagePlaceholder = document.querySelector('.image-placeholder');
 const entryImagePlaceholder = 'images/placeholder-image-square.jpg';
+const entryForm = document.querySelector('div[data-view="entry-form"]');
+const entries = document.querySelector('div[data-view="entries"]');
 
 $photoURL.addEventListener('input', function (event) {
   $imagePlaceholder.setAttribute('src', event.target.value);
@@ -24,7 +26,6 @@ $entryForm.addEventListener('submit', function (event) {
   // const $renderEntry = renderEntry(singleData);
   entriesList.prepend(renderEntry(singleData));
   viewSwap('entries');
-  data.view = 'entries';
 });
 
 function renderEntry(entry) {
@@ -69,8 +70,6 @@ function toggleNoEntries() {
 }
 
 function viewSwap(view) {
-  const entryForm = document.querySelector('div[data-view="entry-form"]');
-  const entries = document.querySelector('div[data-view="entries"]');
 
   if (view === 'entry-form') {
     entryForm.classList.remove('hidden');

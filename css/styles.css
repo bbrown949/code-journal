@@ -1,3 +1,7 @@
+* {
+  list-style: none;
+}
+
 #container {
   margin: auto;
 }
@@ -60,4 +64,8 @@ button {
 .entries-navigation {
   justify-content: space-between;
   align-items: center;
+}
+
+.src {
+  padding-right: 50px;
 }
