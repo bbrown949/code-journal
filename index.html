@@ -1,26 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Code Journal</title>
   <link rel="icon" href="images/favicon.ico">
-  <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
     integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
-    crossorigin="anonymous"
-    referrerpolicy="no-referrer" />
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link rel="stylesheet" href="css/reset.css">
   <link rel="stylesheet" href="css/layout.css">
   <link rel="stylesheet" href="css/styles.css">
 </head>
+
 <body>
   <header>
     <div class="container">
       <div class="row">
-        <div class="column-full">
-          <h1 class="header-content">Code Journal</h1>
+        <div class="column-full row align-center padding-top">
+          <h2 class="header-content">Code Journal</h2>
+          <h2 class="header-entry">Entries</h2>
         </div>
       </div>
     </div>
@@ -39,7 +39,7 @@
           </div>
           <div class="column-half">
             <div><label for="title">Title</label></div>
-            <input name="text" type="text" id="title" required/>
+            <input name="text" type="text" id="title" required />
             <div><label for="url">Photo URL</label></div>
             <input type="url" name="url" id="url" class="url" pattern="https://.*" size="30" required>
           </div>
@@ -58,9 +58,17 @@
         </div>
       </form>
     </div>
-    <div data-view="entries" class="hidden"></div>
+    <div data-view="entries" class="hidden">
+      <div class="row">
+        <div class="entries-navigation column-full">
+          <h2 class="last-entries-text">Entries</h2>
+          <button class="new-btn"><a>NEW</a></button>
+        </div>
+      </div>
+      <p class="no-entries hidden">No entries have been recorded</p>
   </main>
-  <script src="js/data.js"></script>
   <script src="js/main.js"></script>
+  <script src="js/data.js"></script>
 </body>
+
 </html>
