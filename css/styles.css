@@ -3,8 +3,23 @@
 }
 
 .header-content {
+  text-align: left;
   color: white;
-  margin: auto;
+  margin: 0;
+}
+
+.header-entry {
+  color: white;
+  margin: 0;
+  margin-left: 0.5rem;
+}
+
+.padding-top {
+  padding-top: 0.5rem;
+}
+
+.align-center {
+  align-items: center;
 }
 
 header {
@@ -33,4 +48,13 @@ button {
   color: white;
   border: 0;
   padding: 0.3rem 0.5rem;
+}
+
+.no-entries {
+  text-align: center;
+}
+
+.entries-navigation {
+  justify-content: space-between;
+  align-items: center;
 }

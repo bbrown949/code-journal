@@ -1,4 +1,4 @@
-const entriesList = document.querySelector('ul');
+const entriesList = document.querySelector('#entries');
 const $photoURL = document.querySelector('.url');
 const $imagePlaceholder = document.querySelector('.image-placeholder');
 const entryImagePlaceholder = 'images/placeholder-image-square.jpg';
@@ -10,7 +10,6 @@ $photoURL.addEventListener('input', function (event) {
 const $entryForm = document.querySelector('form');
 $entryForm.addEventListener('submit', function (event) {
   event.preventDefault();
-
   const singleData = {
     title: event.target.elements.title.value,
     comment: event.target.elements.comment.value,
@@ -22,8 +21,8 @@ $entryForm.addEventListener('submit', function (event) {
   $imagePlaceholder.setAttribute('src', entryImagePlaceholder);
   $entryForm.reset();
 
-  const $renderEntry = renderEntry(singleData);
-  entriesList.prepend($renderEntry);
+  // const $renderEntry = renderEntry(singleData);
+  entriesList.prepend(renderEntry(singleData));
   viewSwap('entries');
   data.view = 'entries';
 });
@@ -36,7 +35,7 @@ function renderEntry(entry) {
   $li.appendChild($row);
 
   const $columnHalfOne = document.createElement('div');
-  $columnHalfOne.setAtrribute('class', 'column-half');
+  $columnHalfOne.setAttribute('class', 'column-half');
   $row.appendChild($columnHalfOne);
 
   const $columnHalfTwo = document.createElement('div');
@@ -44,7 +43,7 @@ function renderEntry(entry) {
   $row.appendChild($columnHalfTwo);
 
   const $imgLine = document.createElement('img');
-  $imgLine.setAtribute('src', entry.url);
+  $imgLine.setAttribute('src', entry.url);
   $columnHalfOne.appendChild($imgLine);
 
   const $h2Element = document.createElement('h2');
