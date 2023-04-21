@@ -30,7 +30,8 @@
       <form>
         <div class="row">
           <div class="column-full">
-            <h2 class="new-entry">New Entry</h2>
+            <!-- Updates the title of the entry-form view to Edit Entry -->
+            <h2 id="new-entry-edit-entry">New Entry</h2>
           </div>
         </div>
         <div class="row">
@@ -45,10 +46,10 @@
           </div>
           <div class="column-full">
             <div>
-              <label for="notes">Notes</label>
+              <div class="notes-label"><label for="notes-id">Notes</label></div>
+              <textarea rows="7" cols="33" name="notes" class="notes column-full" required="required" id="notes" /></textarea>
             </div>
-            <textarea name="comment" id="notes" cols="80" rows="8">
-            </textarea>
+
           </div>
         </div>
         <div class="row">

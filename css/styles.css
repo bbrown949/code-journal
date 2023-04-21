@@ -39,6 +39,7 @@ img {
 
 input {
   width: 100%;
+  margin-bottom: 20px;
 }
 
 textarea {
@@ -68,4 +69,15 @@ button {
 
 .src {
   padding-right: 50px;
+}
+
+i {
+  color: #562b80;
+  position: relative;
+  float: right;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
 }
