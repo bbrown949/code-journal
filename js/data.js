@@ -1,4 +1,4 @@
-/* exported data */
+// /* exported data */
 
 var data = {
   view: 'entry-form',
