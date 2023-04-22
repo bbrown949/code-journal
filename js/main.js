@@ -14,7 +14,6 @@ $photoURL.addEventListener('input', function (event) {
   $imagePlaceholder.setAttribute('src', event.target.value);
 });
 
-// const $entryForm = document.querySelector('form');
 $form.addEventListener('submit', function (event) {
   event.preventDefault();
   if (data.editing === null) {
@@ -30,18 +29,27 @@ $form.addEventListener('submit', function (event) {
     $imagePlaceholder.setAttribute('src', entryImagePlaceholder);
     $form.reset();
 
-    // const $renderEntry = renderEntry(singleData);
     entriesList.prepend(renderEntry(singleData));
+    toggleNoEntries();
     viewSwap('entries');
   } else {
-    data.editing.title = event.target.elements.title.value;
-    data.editing.comment = event.target.elements.notes.value;
-    data.editing.url = event.target.elements.url.value;
-    const $editedEntry = renderEntry(data.editing);
+    const singleData = {
+      title: $form.elements.title.value,
+      comment: $form.elements.notes.value,
+      url: $form.elements.url.value,
+      entryId: data.editing.entryId
+    };
+    for (let k = 0; k < data.entries.length; k++) {
+      if (data.entries[k].entryId === data.editing.entryId) {
+        data.entries[k] = singleData;
+      }
+    }
+    const $editedEntry = renderEntry(singleData);
     const $li = document.querySelectorAll('li');
     for (let i = 0; i < $li.length; i++) {
       if (Number($li[i].getAttribute('data-entry-id')) === data.editing.entryId) {
         $li[i].replaceWith($editedEntry);
+
       }
     }
     viewSwap('entries');
@@ -100,6 +108,8 @@ function toggleNoEntries() {
   if (data.entries.length === 0) {
 
     noEntriesText.classList.remove('hidden');
+  } else {
+    noEntriesText.classList.add('hidden');
   }
 }
 
@@ -118,7 +128,7 @@ function viewSwap(view) {
 const $headerEntry = document.querySelector('.header-entry');
 $headerEntry.addEventListener('click', function () {
   $entryFormText.textContent = 'New Entry';
-  data.editing = null;
+
   viewSwap('entries');
 
 });
@@ -126,15 +136,13 @@ $headerEntry.addEventListener('click', function () {
 const $newButton = document.querySelector('.new-btn');
 $newButton.addEventListener('click', function () {
 
-  // $entryForm.reset();
-
-  data.editing = null;
   viewSwap('entry-form');
 
   $idTitle.textContent = 'New Entry';
 });
 
 document.addEventListener('DOMContentLoaded', function () {
+
   toggleNoEntries();
 
   /// /Update the entry form's submit handler to do the following:here i think below
