@@ -54,6 +54,10 @@ $form.addEventListener('submit', function (event) {
     }
     viewSwap('entries');
     $form.reset();
+    // issue 4 commit 1 CC
+    var $deleteButton = document.querySelector('.delete-button');
+    $deleteButton.className = 'delete-button hide';
+    // issue 4 commit 1 CC
     $imagePlaceholder.setAttribute('src', entryImagePlaceholder);
     data.editing = null;
   }
@@ -153,6 +157,10 @@ document.addEventListener('DOMContentLoaded', function () {
     entriesList.appendChild(entryElement);
   }
   viewSwap(data.view);
+  // issue 4 commit 1 CC MAYBE
+  var $deleteButton = document.querySelector('.delete-button');
+  $deleteButton.className = 'delete-button';
+  // issue 4 commit 1 CC MAYBE
 });
 
 const $ul = document.querySelector('ul');
@@ -174,6 +182,10 @@ $ul.addEventListener('click', function (event) {
       $entryFormText.textContent = 'Edit Entry';
 
       viewSwap('entry-form');
+      // issue 4 commit 1 CC
+      var $deleteButton = document.querySelector('.delete-button');
+      $deleteButton.className = 'delete-button hide';
+      // issue 4 commit 1 CC
     }
   }
 });

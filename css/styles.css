@@ -81,3 +81,34 @@ ul {
   margin: 0;
   padding: 0;
 }
+
+.delete-and-save-buttons-div {
+  position: relative;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.delete-button {
+  position: absolute;
+  bottom: 12px;
+  color: red;
+  padding-top: 15px;
+
+  /* display: none; */
+}
+
+/* issue four commit 1
+.delete-button {
+  border: none;
+  text-decoration: underline;
+  font-size: 0.83rem;
+  color: #dc2626;
+}
+
+.save-delete-container {
+  display: flex;
+}
+
+.delete-container {
+  padding-top: 1rem;
+} */
