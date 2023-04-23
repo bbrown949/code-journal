@@ -8,6 +8,11 @@
   padding: 0 1.5rem;
 }
 
+/*  issue four commit 1
+.hidden-button {
+  visibility: hidden !important;
+} */
+
 .row {
   text-align: left;
   display: flex;
@@ -30,6 +35,17 @@
     padding: 0 0.75rem;
   }
 
+  .column-full-two {
+    width: 100%;
+    display: flex;
+  }
+
+  .column-full2 {
+    padding: 0 0.75rem;
+    display: flex;
+    justify-content: end;
+  }
+
   .column-half {
     width: 50%;
   }
@@ -37,4 +53,8 @@
 
 .entries-navigation {
   display: flex;
+}
+
+.row-buttons {
+  width: 100%;
 }

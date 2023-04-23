@@ -55,7 +55,7 @@ $form.addEventListener('submit', function (event) {
     viewSwap('entries');
     $form.reset();
     // issue 4 commit 1 CC
-    var $deleteButton = document.querySelector('.delete-button');
+    const $deleteButton = document.querySelector('.delete-button');
     $deleteButton.className = 'delete-button hide';
     // issue 4 commit 1 CC
     $imagePlaceholder.setAttribute('src', entryImagePlaceholder);
@@ -132,7 +132,8 @@ function viewSwap(view) {
 const $headerEntry = document.querySelector('.header-entry');
 $headerEntry.addEventListener('click', function () {
   $entryFormText.textContent = 'New Entry';
-
+  const $deleteButton = document.querySelector('.delete-button');
+  $deleteButton.className = 'delete-button';
   viewSwap('entries');
 
 });
@@ -158,9 +159,9 @@ document.addEventListener('DOMContentLoaded', function () {
   }
   viewSwap(data.view);
   // issue 4 commit 1 CC MAYBE
-  var $deleteButton = document.querySelector('.delete-button');
-  $deleteButton.className = 'delete-button';
-  // issue 4 commit 1 CC MAYBE
+  const $deleteButton = document.querySelector('.delete-button');
+  $deleteButton.className = 'delete-button hide';
+  // issue 4 commit 1 CC MAYBE keep hide
 });
 
 const $ul = document.querySelector('ul');
@@ -183,9 +184,44 @@ $ul.addEventListener('click', function (event) {
 
       viewSwap('entry-form');
       // issue 4 commit 1 CC
-      var $deleteButton = document.querySelector('.delete-button');
-      $deleteButton.className = 'delete-button hide';
+      const $deleteButton = document.querySelector('.delete-button');
+      $deleteButton.className = 'delete-button';
       // issue 4 commit 1 CC
     }
   }
 });
+
+// modal below
+const $deleteBtn = document.querySelector('.delete-button');
+const $popupModal = document.querySelector('.delete-entry-background');
+$deleteBtn.addEventListener('click', $deleteEntryPopup);
+function $deleteEntryPopup() {
+  $popupModal.className = 'delete-entry-background';
+}
+
+// When the user clicks Cancel, hide the modal.
+const $cancelBtn = document.querySelector('.dlt-btn-cancel');
+$cancelBtn.addEventListener('click', $cancelDelete);
+function $cancelDelete() {
+  $popupModal.className = 'delete-entry-background hide';
+}
+
+//
+
+const $confirmDeleteBtn = document.querySelector('.dlt-btn-confirm');
+$confirmDeleteBtn.addEventListener('click', $confirmDeletion);
+function $confirmDeletion() {
+  for (let i = 0; i < data.entries.length; i++) {
+    if (data.entries[i].entryId === data.editing.entryId) {
+      data.entries.splice(data.entries[i], 1);
+      $popupModal.className = 'delete-entry-background hide';
+
+      const $allLiElements = document.querySelectorAll('li');
+      for (let k = 0; k < $allLiElements.length; k++) {
+        if (Number($allLiElements[k].getAttribute('data-entry-id')) === data.editing.entryId) {
+          $allLiElements[k].remove();
+        }
+      }
+    }
+  }
+}

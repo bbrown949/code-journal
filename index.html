@@ -17,7 +17,7 @@
 <body>
   <header>
     <div class="container">
-      <div class="row">
+      <div class="row-buttons">
         <div class="column-full row align-center padding-top">
           <h2 class="header-content">Code Journal</h2>
           <h2 class="header-entry">Entries</h2>
@@ -55,13 +55,13 @@
         </div>
         <div class="row">
           <div class="submit-button column-full">
-            <button type="submit" value="save">Save</button>
-            <!-- delete and save button -->
-            <div class="delete-and-save-buttons-div">
-              <a class="delete-button hide" href="#">Delete Entry</a>
-              <!-- delete and save button consider changing div name -->
-            </div>
+            <div class="delete-and-save-buttons-div"></div>
+            <a class="delete-button" href="#">Delete Entry</a>
+            <!-- delete and save button consider changing div name -->
           </div>
+          <button type="submit" value="save">Save</button>
+          <!-- delete and save button -->
+
         </div>
       </form>
     </div>
@@ -74,9 +74,28 @@
       </div>
       <p class="no-entries hidden">No entries have been recorded</p>
       <ul id="entries"></ul>
+    </div>
+
+    <!-- issue for commit 2 modal html line 79 needs hidden class added back in -->
+    <div class="delete-entry-background hidden">
+      <div class="height"></div>
+      <div class="delete-entry-whitebox">
+        <div>
+          <p class="delete-this-entry-p">Are you sure you want to delete this entry?</p>
+        </div>
+        <div class="delete-entry-buttons-container">
+          <button class="dlt-btn-cancel">CANCEL</button>
+          <button class="dlt-btn-confirm">CONFIRM</button>
+
+        </div>
+      </div>
+
   </main>
-  <script src="js/main.js"></script>
+
+
   <script src="js/data.js"></script>
+  <script src="js/main.js"></script>
+
 </body>
 
 </html>

@@ -93,22 +93,56 @@ ul {
   bottom: 12px;
   color: red;
   padding-top: 15px;
-
-  /* display: none; */
 }
 
-/* issue four commit 1
-.delete-button {
-  border: none;
-  text-decoration: underline;
-  font-size: 0.83rem;
-  color: #dc2626;
+.delete-entry-whitebox {
+  text-align: center;
+  background-color: white;
+  padding: 30px 30px 10px;
+  margin: -300px 20px 0;
+  border-radius: 3px;
+  width: 400px;
 }
 
-.save-delete-container {
+.delete-this-entry-p {
+  padding: 0 0 20px;
+  font-weight: 700;
+  font-size: 13px;
+}
+
+.delete-entry-background {
+  height: 1050px;
+  position: absolute;
+  top: 0;
+  background-color: rgba(33, 33, 33, 0.65);
+  width: 100%;
   display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.delete-container {
-  padding-top: 1rem;
-} */
+.dlt-btn-cancel,
+.dlt-btn-confirm {
+  border: none;
+  width: 92px;
+  height: 40px;
+  margin: 0 0 20px;
+}
+
+.dlt-btn-cancel {
+  background-color: grey;
+  color: black;
+}
+
+.dlt-btn-confirm {
+  background-color: red;
+}
+
+.delete-entry-buttons-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.hide {
+  display: none;
+}
