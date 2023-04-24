@@ -5,10 +5,10 @@ const entryImagePlaceholder = 'images/placeholder-image-square.jpg';
 const entryForm = document.querySelector('div[data-view="entry-form"]');
 const entries = document.querySelector('div[data-view="entries"]');
 const $entryFormText = document.querySelector('#new-entry-edit-entry');
-// change below
 const $form = document.querySelector('form');
-// bs FINE NOW
 const $idTitle = document.getElementById('new-entry-edit-entry');
+const $deleteButton = document.querySelector('.delete-button');
+const $deleteBtn = document.querySelector('.delete-button');
 
 $photoURL.addEventListener('input', function (event) {
   $imagePlaceholder.setAttribute('src', event.target.value);
@@ -54,6 +54,9 @@ $form.addEventListener('submit', function (event) {
     }
     viewSwap('entries');
     $form.reset();
+    // issue 4 commit 1 CC
+    $deleteButton.className = 'delete-button hide';
+    // issue 4 commit 1 CC
     $imagePlaceholder.setAttribute('src', entryImagePlaceholder);
     data.editing = null;
   }
@@ -128,14 +131,15 @@ function viewSwap(view) {
 const $headerEntry = document.querySelector('.header-entry');
 $headerEntry.addEventListener('click', function () {
   $entryFormText.textContent = 'New Entry';
-
+  $deleteButton.className = 'delete-button';
   viewSwap('entries');
+  $form.reset();
 
 });
 
 const $newButton = document.querySelector('.new-btn');
 $newButton.addEventListener('click', function () {
-
+  $deleteButton.className = 'delete-button hidden';
   viewSwap('entry-form');
 
   $idTitle.textContent = 'New Entry';
@@ -153,6 +157,7 @@ document.addEventListener('DOMContentLoaded', function () {
     entriesList.appendChild(entryElement);
   }
   viewSwap(data.view);
+  $deleteButton.className = 'delete-button hide';
 });
 
 const $ul = document.querySelector('ul');
@@ -172,8 +177,49 @@ $ul.addEventListener('click', function (event) {
       $form.elements.notes.value = data.editing.comment;
       $imagePlaceholder.setAttribute('src', data.editing.url);
       $entryFormText.textContent = 'Edit Entry';
-
       viewSwap('entry-form');
+
+      $deleteButton.className = 'delete-button';
     }
   }
 });
+
+// modal below
+
+const $popupModal = document.querySelector('.delete-entry-background');
+$deleteBtn.addEventListener('click', deleteEntryPopup);
+function deleteEntryPopup() {
+  $popupModal.className = 'delete-entry-background';
+}
+
+// When the user clicks Cancel, hide the modal.
+const $cancelBtn = document.querySelector('.dlt-btn-cancel');
+$cancelBtn.addEventListener('click', cancelDelete);
+function cancelDelete() {
+  $popupModal.className = 'delete-entry-background hide';
+}
+
+//
+
+const $confirmDeleteBtn = document.querySelector('.dlt-btn-confirm');
+$confirmDeleteBtn.addEventListener('click', confirmDeletion);
+function confirmDeletion() {
+  for (let i = 0; i < data.entries.length; i++) {
+    if (data.entries[i].entryId === data.editing.entryId) {
+      data.entries.splice(data.entries[i], 1);
+      $popupModal.className = 'delete-entry-background hide';
+
+      const $allLiElements = document.querySelectorAll('li');
+      for (let k = 0; k < $allLiElements.length; k++) {
+        if (Number($allLiElements[k].getAttribute('data-entry-id')) === data.editing.entryId) {
+          $allLiElements[k].remove();
+        }
+      }
+      toggleNoEntries();
+      $form.reset();
+      $imagePlaceholder.setAttribute('src', 'images/placeholder-image-square.jpg');
+      viewSwap('entries');
+      data.editing = null;
+    }
+  }
+}

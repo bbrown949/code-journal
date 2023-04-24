@@ -81,3 +81,78 @@ ul {
   margin: 0;
   padding: 0;
 }
+
+.submit-delete-row {
+  display: flex;
+  position: relative;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.delete-button {
+  font-size: 14px;
+  padding-left: 11px;
+  margin: 0;
+  bottom: 12px;
+  color: red;
+  padding-top: 15px;
+}
+
+.save-button {
+  padding-right: 10px;
+}
+
+.delete-entry-whitebox {
+  position: fixed;
+  text-align: center;
+  background-color: white;
+  padding: 30px 30px 10px;
+  margin: -200px 20px 0;
+  border-radius: 3px;
+  width: 350px;
+}
+
+.delete-this-entry-p {
+  padding: 0 0 20px;
+  font-weight: 700;
+  font-size: 13px;
+}
+
+.delete-entry-background {
+  position: fixed;
+  bottom: 0;
+  top: 0;
+  right: 0;
+  left: 0;
+  background-color: rgba(33, 33, 33, 0.65);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.dlt-btn-cancel,
+.dlt-btn-confirm {
+  border: none;
+  width: 92px;
+  height: 40px;
+  margin: 0 0 20px;
+}
+
+.dlt-btn-cancel {
+  background-color: grey;
+  color: black;
+}
+
+.dlt-btn-confirm {
+  background-color: red;
+}
+
+.delete-entry-buttons-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.hide {
+  display: none;
+}
