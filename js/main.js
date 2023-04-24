@@ -8,6 +8,7 @@ const $entryFormText = document.querySelector('#new-entry-edit-entry');
 const $form = document.querySelector('form');
 const $idTitle = document.getElementById('new-entry-edit-entry');
 const $deleteButton = document.querySelector('.delete-button');
+const $deleteBtn = document.querySelector('.delete-button');
 
 $photoURL.addEventListener('input', function (event) {
   $imagePlaceholder.setAttribute('src', event.target.value);
@@ -184,25 +185,25 @@ $ul.addEventListener('click', function (event) {
 });
 
 // modal below
-const $deleteBtn = document.querySelector('.delete-button');
+
 const $popupModal = document.querySelector('.delete-entry-background');
-$deleteBtn.addEventListener('click', $deleteEntryPopup);
-function $deleteEntryPopup() {
+$deleteBtn.addEventListener('click', deleteEntryPopup);
+function deleteEntryPopup() {
   $popupModal.className = 'delete-entry-background';
 }
 
 // When the user clicks Cancel, hide the modal.
 const $cancelBtn = document.querySelector('.dlt-btn-cancel');
-$cancelBtn.addEventListener('click', $cancelDelete);
-function $cancelDelete() {
+$cancelBtn.addEventListener('click', cancelDelete);
+function cancelDelete() {
   $popupModal.className = 'delete-entry-background hide';
 }
 
 //
 
 const $confirmDeleteBtn = document.querySelector('.dlt-btn-confirm');
-$confirmDeleteBtn.addEventListener('click', $confirmDeletion);
-function $confirmDeletion() {
+$confirmDeleteBtn.addEventListener('click', confirmDeletion);
+function confirmDeletion() {
   for (let i = 0; i < data.entries.length; i++) {
     if (data.entries[i].entryId === data.editing.entryId) {
       data.entries.splice(data.entries[i], 1);
