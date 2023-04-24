@@ -82,17 +82,26 @@ ul {
   padding: 0;
 }
 
-.delete-and-save-buttons-div {
+.submit-delete-row {
+  display: flex;
   position: relative;
   justify-content: space-between;
   align-items: center;
+  width: 100%;
 }
 
 .delete-button {
+  font-size: 14px;
+  padding-left: 11px;
+  margin: 0;
   position: absolute;
   bottom: 12px;
   color: red;
   padding-top: 15px;
+}
+
+.save-button {
+  padding-right: 10px;
 }
 
 .delete-entry-whitebox {
@@ -111,11 +120,14 @@ ul {
 }
 
 .delete-entry-background {
+  width: 100%;
   height: 1050px;
   position: absolute;
+  bottom: 0;
   top: 0;
+  right: 0;
+  left: 0;
   background-color: rgba(33, 33, 33, 0.65);
-  width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;

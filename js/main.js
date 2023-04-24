@@ -5,10 +5,9 @@ const entryImagePlaceholder = 'images/placeholder-image-square.jpg';
 const entryForm = document.querySelector('div[data-view="entry-form"]');
 const entries = document.querySelector('div[data-view="entries"]');
 const $entryFormText = document.querySelector('#new-entry-edit-entry');
-// change below
 const $form = document.querySelector('form');
-// bs FINE NOW
 const $idTitle = document.getElementById('new-entry-edit-entry');
+const $deleteButton = document.querySelector('.delete-button');
 
 $photoURL.addEventListener('input', function (event) {
   $imagePlaceholder.setAttribute('src', event.target.value);
@@ -55,7 +54,6 @@ $form.addEventListener('submit', function (event) {
     viewSwap('entries');
     $form.reset();
     // issue 4 commit 1 CC
-    const $deleteButton = document.querySelector('.delete-button');
     $deleteButton.className = 'delete-button hide';
     // issue 4 commit 1 CC
     $imagePlaceholder.setAttribute('src', entryImagePlaceholder);
@@ -132,15 +130,15 @@ function viewSwap(view) {
 const $headerEntry = document.querySelector('.header-entry');
 $headerEntry.addEventListener('click', function () {
   $entryFormText.textContent = 'New Entry';
-  const $deleteButton = document.querySelector('.delete-button');
   $deleteButton.className = 'delete-button';
   viewSwap('entries');
+  $form.reset();
 
 });
 
 const $newButton = document.querySelector('.new-btn');
 $newButton.addEventListener('click', function () {
-
+  $deleteButton.className = 'delete-button hidden';
   viewSwap('entry-form');
 
   $idTitle.textContent = 'New Entry';
@@ -158,10 +156,7 @@ document.addEventListener('DOMContentLoaded', function () {
     entriesList.appendChild(entryElement);
   }
   viewSwap(data.view);
-  // issue 4 commit 1 CC MAYBE
-  const $deleteButton = document.querySelector('.delete-button');
   $deleteButton.className = 'delete-button hide';
-  // issue 4 commit 1 CC MAYBE keep hide
 });
 
 const $ul = document.querySelector('ul');
@@ -181,12 +176,9 @@ $ul.addEventListener('click', function (event) {
       $form.elements.notes.value = data.editing.comment;
       $imagePlaceholder.setAttribute('src', data.editing.url);
       $entryFormText.textContent = 'Edit Entry';
-
       viewSwap('entry-form');
-      // issue 4 commit 1 CC
-      const $deleteButton = document.querySelector('.delete-button');
+
       $deleteButton.className = 'delete-button';
-      // issue 4 commit 1 CC
     }
   }
 });
@@ -222,6 +214,11 @@ function $confirmDeletion() {
           $allLiElements[k].remove();
         }
       }
+      toggleNoEntries();
+      $form.reset();
+      $imagePlaceholder.setAttribute('src', 'images/placeholder-image-square.jpg');
+      viewSwap('entries');
+      data.editing = null;
     }
   }
 }

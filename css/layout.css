@@ -8,11 +8,6 @@
   padding: 0 1.5rem;
 }
 
-/*  issue four commit 1
-.hidden-button {
-  visibility: hidden !important;
-} */
-
 .row {
   text-align: left;
   display: flex;
